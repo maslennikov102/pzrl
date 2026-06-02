@@ -114,7 +114,7 @@ private:
     void _rotateLeft(Node *x);
     void _rotateRight(Node *y);
     void _insertFixup(Node *z);
-    void _transplant(Node *u, Node *v);
+    void _swap(Node *u, Node *v);
     void _eraseFixup(Node *x, Node *xParent);
     void _eraseNode(Node *z);
 };

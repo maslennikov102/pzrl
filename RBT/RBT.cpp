@@ -227,7 +227,7 @@ void BinarySearchTree::_insertFixup(Node *z)
     _root->color = false;
 }
 
-void BinarySearchTree::_transplant(Node *u, Node *v)
+void BinarySearchTree::_swap(Node *u, Node *v)
 {
     if (!u->parent) 
     {
@@ -356,13 +356,13 @@ void BinarySearchTree::_eraseNode(Node *z)
     {
         x = z->right;
         xParent = z->parent;
-        _transplant(z, z->right);
+        _swap(z, z->right);
     } 
     else if (!z->right)
     {
         x = z->left;
         xParent = z->parent;
-        _transplant(z, z->left);
+        _swap(z, z->left);
     } 
     else 
     {
@@ -376,11 +376,11 @@ void BinarySearchTree::_eraseNode(Node *z)
 	else 
 	{
             xParent = y->parent;
-            _transplant(y, y->right);
+            _swap(y, y->right);
             y->right = z->right;
             y->right->parent = y;
         }
-        _transplant(z, y);
+        _swap(z, y);
         y->left = z->left;
         y->left->parent = y;
         y->color = z->color;
